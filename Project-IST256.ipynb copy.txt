@@ -1,0 +1,421 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Title: Bir Baba Hindu   Type: movie\n",
+      "Title: Beynelmilel   Type: movie\n",
+      "Title: The Plane Tree   Type: movie\n",
+      "Title: Ek&#x15F;i Elmalar   Type: movie\n",
+      "Title: G&ouml;r&uuml;mce   Type: movie\n",
+      "Title: You Know Who   Type: movie\n",
+      "Title: R.K.Nagar   Type: movie\n",
+      "Title: The Reliant   Type: movie\n",
+      "Title: Organize Isler   Type: movie\n",
+      "Title: Neseli Hayat   Type: movie\n",
+      "Title: &#x130;stanbul K&#x131;rm&#x131;z&#x131;s&#x131;   Type: movie\n",
+      "Title: K&uuml;&ccedil;&uuml;k Esnaf   Type: movie\n",
+      "Title: A Secret Love   Type: movie\n",
+      "Title: Murder to Mercy: The Cyntoia Brown Story   Type: movie\n",
+      "Title: Extracurricular   Type: series\n",
+      "Title: Nadiya&rsquo;s Time to Eat   Type: series\n",
+      "Title: Summertime   Type: series\n",
+      "Title: Love Is War   Type: movie\n",
+      "Title: Dangerous Lies   Type: movie\n",
+      "Title: Rich in Love   Type: movie\n",
+      "Title: DRIFTING DRAGONS   Type: series\n",
+      "Title: The Victims&#39; Game   Type: series\n",
+      "Title: The Forest of Love: Deep Cut   Type: series\n",
+      "Title: Ace Ventura: Pet Detective   Type: movie\n",
+      "Title: Above the Rim   Type: movie\n",
+      "Title: All Day and a Night   Type: movie\n",
+      "Title: Armed Response   Type: movie\n",
+      "Title: Back to the Future   Type: movie\n",
+      "Title: Back to the Future Part II   Type: movie\n",
+      "Title: Bennett&#39;s War   Type: movie\n",
+      "Title: Blackfish   Type: movie\n",
+      "Title: Charlie and the Chocolate Factory   Type: movie\n",
+      "Title: The Curious Case of Benjamin Button   Type: movie\n",
+      "Title: Cracked Up: The Darrell Hammond Story   Type: movie\n",
+      "Title: Den of Thieves   Type: movie\n",
+      "Title: Death Can Wait   Type: movie\n",
+      "Title: For Colored Girls   Type: movie\n",
+      "Title: Get on the Bus   Type: movie\n",
+      "Title: Fun with Dick and Jane   Type: movie\n",
+      "Title: Get In   Type: movie\n",
+      "Title: The Half Of It   Type: movie\n",
+      "Title: The Heartbreak Kid   Type: movie\n",
+      "Title: Har Kisse Ke Hisse: Kaamyaab   Type: movie\n",
+      "Title: I Am Divine   Type: movie\n",
+      "Title: Willy Wonka and the Chocolate Factory   Type: movie\n",
+      "Title: What a Girl Wants   Type: movie\n",
+      "Title: Urban Cowboy   Type: movie\n",
+      "Title: Underworld   Type: movie\n",
+      "Title: Underworld: Evolution   Type: movie\n",
+      "Title: Underworld: Rise of the Lycans   Type: movie\n",
+      "Title: Go! Go! Cory Carson: The Chrissy   Type: movie\n",
+      "Title: Thomas &amp; Friends: Marvelous Machinery: A New Arrival   Type: movie\n",
+      "Title: Thomas &amp; Friends: Marvelous Machinery: World of Tomorrow   Type: movie\n",
+      "Title: Thomas &amp; Friends: Thomas and the Royal Engine   Type: movie\n",
+      "Title: Song of the Sea   Type: movie\n",
+      "Title: The Stand at Paxton County   Type: movie\n",
+      "Title: She Hate Me   Type: movie\n",
+      "Title: Sinister   Type: movie\n",
+      "Title: Roped   Type: movie\n",
+      "Title: Romeo Must Die   Type: movie\n",
+      "Title: Psycho   Type: movie\n",
+      "Title: The Patriot   Type: movie\n",
+      "Title: Mrs. Serial Killer   Type: movie\n",
+      "Title: Material   Type: movie\n",
+      "Title: Almost Happy   Type: series\n",
+      "Title: 44Cats   Type: series\n",
+      "Title: Hoarders   Type: show\n",
+      "Title: Hollywood   Type: series\n",
+      "Title: Hangar 1: The UFO Files   Type: show\n",
+      "Title: Into the Night   Type: series\n",
+      "Title: Monthly Girls&#39; Nozaki Kun   Type: series\n",
+      "Title: Oh Yuck   Type: series\n",
+      "Title: Polly Pocket   Type: series\n",
+      "Title: Pup Academy   Type: series\n",
+      "Title: Reckoning   Type: series\n",
+      "Title: WWII: Lost Films   Type: series\n",
+      "Title: The Universe: Ancient Mysteries Solved   Type: show\n",
+      "Title: Jarhead 2: Field of Fire   Type: movie\n",
+      "Title: Jarhead 3: The Siege   Type: movie\n",
+      "Title: Madagascar: Escape 2 Africa   Type: movie\n",
+      "Title: Jarhead   Type: movie\n",
+      "Title: Mike Birbiglia: My Girlfriend&#39;s Boyfriend   Type: movie\n",
+      "Title: Lady Driver   Type: movie\n"
+     ]
+    }
+   ],
+   "source": [
+    "#This opens up the API for movies or TV Shows COMING to netflix\n",
+    "\n",
+    "import requests\n",
+    "\n",
+    "url = \"https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi\"\n",
+    "\n",
+    "querystring = {\"q\":\"get:new7:US\",\"p\":\"1\",\"t\":\"ns\",\"st\":\"adv\"}\n",
+    "\n",
+    "headers = {\n",
+    "    'x-rapidapi-host': \"unogs-unogs-v1.p.rapidapi.com\",\n",
+    "    'x-rapidapi-key': \"54f73deac1msh691cb562e1bb8aep1cf72fjsn3d1b8e92ed56\"\n",
+    "    }\n",
+    "\n",
+    "response = requests.request(\"GET\", url, headers=headers, params=querystring)\n",
+    "\n",
+    "\n",
+    "videos = response.json()\n",
+    "\n",
+    "\n",
+    "#Creates function to make the dict easier to read\n",
+    "\n",
+    "for video in videos['ITEMS']:\n",
+    "    name = video.get('title', 'Unknown Title')\n",
+    "    description = video.get('synopsis', 'Unknown Synopsis')\n",
+    "    rating = video.get('rating', 'Unknown Rating')\n",
+    "    form = video.get('type', 'Unknown Type')\n",
+    "    year = video.get('released', 'Unknown Released')\n",
+    "    runtime = video.get('runtime', 'Unknown Runtime')\n",
+    "    \n",
+    "    print(f\"Title: {name}   Type: {form}\")\n",
+    "\n",
+    "#calls the function and prints below\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Another thing we tried, that wasn't working how we wanted it to, all with the help of TA\n",
+    "def NameandForm(type):\n",
+    "    for video in videos['ITEMS']:\n",
+    "        name = video.get('title', 'Unknown Title')\n",
+    "        form = video.get('type', 'Unknown Type')\n",
+    "        return name\n",
+    "        return form"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Bir Baba Hindu'"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "title = 'Bir Baba Hindu'\n",
+    "NameandForm(title)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Westside vs. the World'"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Below is the call to the API with movies or TV Shows LEAVING netflix\n",
+    "\n",
+    "import requests\n",
+    "\n",
+    "url = \"https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi\"\n",
+    "\n",
+    "querystring = {\"q\":\"get:exp:US\",\"t\":\"ns\",\"st\":\"adv\",\"p\":\"1\"}\n",
+    "\n",
+    "headers = {\n",
+    "    'x-rapidapi-host': \"unogs-unogs-v1.p.rapidapi.com\",\n",
+    "    'x-rapidapi-key': \"54f73deac1msh691cb562e1bb8aep1cf72fjsn3d1b8e92ed56\"\n",
+    "    }\n",
+    "\n",
+    "response = requests.request(\"GET\", url, headers=headers, params=querystring)\n",
+    "\n",
+    "contents = response.json()\n",
+    "\n",
+    "#Creating function to make it easier to read\n",
+    "\n",
+    "def netflixdepartures():\n",
+    "\n",
+    "    for content in contents['ITEMS']:\n",
+    "        name = content.get('title', 'Unknown Title')\n",
+    "        description = content.get('synopsis', 'Unknown Synopsis')\n",
+    "        rating = content.get('rating', 'Unknown Rating')\n",
+    "        form = content.get('type', 'Unknown Type')\n",
+    "        year = content.get('released', 'Unknown Released')\n",
+    "        runtime = content.get('runtime', 'Unknown Runtime')\n",
+    "        expirationdate = content.get('unogsdate', 'Unknown Unogsdate')\n",
+    "    return name\n",
+    "    return form\n",
+    "        \n",
+    "\n",
+    "        \n",
+    "#Calling the function\n",
+    "netflixdepartures()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#this is a test, that we tried with the TA by trying to make a new function to see if it worked\n",
+    "def new(response):\n",
+    "    for content in contents['ITEMS']:\n",
+    "        form = content.get('type', 'Unknown Type')\n",
+    "        for video in videos['ITEMS']:\n",
+    "            form = video.get('type', 'Unknown Type')\n",
+    "    return form"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'new' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-8-803a22dc4a67>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mnew\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mresponse\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m: name 'new' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "#Still weren't able to get anywhere\n",
+    "new(response)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Trying to narrow down the search until you get to final output with the specific shows or movies they should watch\n",
+    "\n",
+    "#New or Expiring\n",
+    "\n",
+    "def NeworExpiring(response):\n",
+    "    x = netflixarrivals()\n",
+    "    y = netflixdepartures()\n",
+    "    if response == 'new':\n",
+    "        return x\n",
+    "    else:\n",
+    "        return y\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "NeworExpiring('new')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "response = input('Do you want to watch a new arrival or expiring movie or show on netflix?  ')\n",
+    "NeworExpiring(response)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Do you want to watch a movie or series?  movie\n",
+      "Do you want to watch a new arrival or expiring movie or show on netflix?  new\n"
+     ]
+    },
+    {
+     "ename": "NameError",
+     "evalue": "name 'NeworExpiring' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-13-f31f67f6f907>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      5\u001b[0m     \u001b[0mforms\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mvideo\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'type'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'Unknown Type'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m     \u001b[0mnames\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mvideo\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'title'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'Unknown Title'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 7\u001b[0;31m     \u001b[0;32mif\u001b[0m \u001b[0mforms\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m'movie'\u001b[0m \u001b[0;32mand\u001b[0m \u001b[0mNeworExpiring\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mresponse\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;32mTrue\u001b[0m \u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      8\u001b[0m         \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mf\"{name}\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m     \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'NeworExpiring' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "#\n",
+    "form_choice = input(\"Do you want to watch a movie or series?  \")\n",
+    "response = input('Do you want to watch a new arrival or expiring movie or show on netflix?  ')\n",
+    "for video in videos['ITEMS']:\n",
+    "    forms = video.get('type', 'Unknown Type')\n",
+    "    names = video.get('title', 'Unknown Title')\n",
+    "    if forms == 'movie' and NeworExpiring(response) == True :\n",
+    "        print(f\"{name}\")\n",
+    "    else:\n",
+    "        print(\"Hello\")\n",
+    "    for content in contents['ITEMS']:\n",
+    "        form = content.get('type', 'Unknown Type')\n",
+    "        name = content.get('title', 'Unknown Title')\n",
+    "        if form == 'movie' and NeworExpiring(response) == False :\n",
+    "            print(f\"{name}\")\n",
+    "        else:\n",
+    "            print(\"Hello\")\n",
+    "\n",
+    "\n",
+    "\n",
+    "    \n",
+    "\n",
+    "\n",
+    "#If movie, longer than 1hr 30minutes (Runtime)\n",
+    "\n",
+    "#Release year, after 2005?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "selection = input(\"Out of the titles above, which one do you want to learn more about? \")\n",
+    "for selection in netflixarrivals() or netflixdepartures():"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "elif form == 'series' and response == 'new':\n",
+    "        print(f\"{name}\")\n",
+    "    elif form == 'series' and response == 'expiring':\n",
+    "        print(f\"{name}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
